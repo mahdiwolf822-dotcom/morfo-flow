@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Morfo Flow — اتوماسیون اختصاصی کسب‌وکار</title>
+<meta name="description" content="Morfo Flow سیستم اتوماسیون اختصاصی برای کسب‌وکار شما می‌سازد؛ از پاسخ‌گویی خودکار مشتری تا مدیریت سفارش و مالی، بدون نیاز به تیم فنی.">
+<meta name="theme-color" content="#0A0C10">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Morfo Flow — اتوماسیون اختصاصی کسب‌وکار">
+<meta property="og:description" content="Morfo Flow سیستم اتوماسیون اختصاصی برای کسب‌وکار شما می‌سازد؛ از پاسخ‌گویی خودکار مشتری تا مدیریت سفارش و مالی.">
+<meta property="og:locale" content="fa_IR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Morfo Flow — اتوماسیون اختصاصی کسب‌وکار">
+<meta name="twitter:description" content="سیستم اتوماسیون اختصاصی برای کسب‌وکار شما، ساخته‌شده توسط تیم Morfo.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<style>
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-SemiBold.woff2') format('woff2');
+  font-weight:600; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight:700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-ExtraBold.woff2') format('woff2');
+  font-weight:800; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Black.woff2') format('woff2');
+  font-weight:900; font-style:normal; font-display:swap;
+}
+
+:root{
+  --bg: #0A0C10;
+  --bg-soft: #0D1015;
+  --surface: #12161D;
+  --surface-hi: #171B23;
+  --line: #212630;
+  --text: #EDEFF3;
+  --muted: #8B93A3;
+  --muted-dim: #5C6473;
+  --accent: #22B8A0;
+  --accent-soft: rgba(34,184,160,.14);
+  --accent-line: rgba(34,184,160,.35);
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --maxw: 1180px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+@media (max-width:640px){ .wrap{padding:0 20px;} }
+
+/* focus visibility */
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:6px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,12,16,.78);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  height:72px;
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px;}
+.brand-mark{width:30px; height:30px;}
+.brand-sub{color:var(--muted); font-weight:400; font-size:13px; margin-inline-start:2px;}
+.nav-links{display:flex; align-items:center; gap:32px;}
+.nav-links a{color:var(--muted); font-size:15px; font-weight:500; transition:color .18s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{
+  padding:10px 20px; border-radius:999px;
+  background:var(--accent); color:#06231D; font-weight:700; font-size:14.5px;
+  transition:transform .18s, box-shadow .18s;
+}
+.nav-cta:hover{transform:translateY(-1px); box-shadow:0 8px 22px -6px var(--accent-line);}
+.nav-toggle{display:none;}
+
+@media (max-width:880px){
+  .nav-links{display:none;}
+  .nav-toggle{display:flex; align-items:center; justify-content:center; width:40px; height:40px;}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:104px 0 96px;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute; inset:-20% -10% auto -10%;
+  height:640px;
+  background:radial-gradient(ellipse at 30% 0%, rgba(34,184,160,.16), transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;
+}
+@media (max-width:960px){ .hero-grid{grid-template-columns:1fr; gap:48px;} }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  color:var(--accent); font-size:14px; font-weight:600;
+  margin-bottom:22px;
+}
+.eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+
+.hero h1{
+  font-size:clamp(34px, 4.6vw, 54px);
+  font-weight:800;
+  line-height:1.28;
+  letter-spacing:-0.01em;
+  margin-bottom:22px;
+}
+.hero h1 .line2{color:var(--muted);}
+
+.hero p.lead{
+  color:var(--muted);
+  font-size:18px;
+  max-width:52ch;
+  margin-bottom:34px;
+}
+
+.cta-row{display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+.btn-primary{
+  padding:15px 30px; border-radius:12px;
+  background:var(--accent); color:#06231D; font-weight:700; font-size:16px;
+  transition:transform .18s, box-shadow .18s;
+  display:inline-flex; align-items:center; gap:10px;
+}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px -10px var(--accent-line);}
+.btn-ghost{
+  padding:15px 26px; border-radius:12px;
+  border:1px solid var(--line); color:var(--text); font-weight:600; font-size:16px;
+  transition:border-color .18s, background .18s;
+}
+.btn-ghost:hover{border-color:var(--accent-line); background:var(--surface);}
+
+.hero-trust{
+  margin-top:44px; display:flex; gap:34px; flex-wrap:wrap;
+}
+.hero-trust .stat b{display:block; font-size:24px; font-weight:800;}
+.hero-trust .stat span{color:var(--muted-dim); font-size:13.5px;}
+
+/* Hero flow diagram */
+.flow-panel{
+  position:relative;
+  background:linear-gradient(180deg, var(--surface), var(--bg-soft));
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:26px;
+  min-height:380px;
+}
+.flow-panel svg{width:100%; height:auto;}
+
+.node{fill:var(--surface-hi); stroke:var(--line); stroke-width:1.4;}
+.node-label{fill:var(--text); font-family:'Vazirmatn'; font-size:13px; font-weight:600;}
+.node-sub{fill:var(--muted-dim); font-family:'Vazirmatn'; font-size:10.5px;}
+.edge{fill:none; stroke:var(--line); stroke-width:1.6;}
+.edge-active{fill:none; stroke:var(--accent); stroke-width:2; stroke-dasharray:5 7;}
+.pulse{fill:var(--accent);}
+
+@keyframes dashmove{ to{ stroke-dashoffset:-120; } }
+.edge-active{ animation:dashmove 6s linear infinite; }
+
+@keyframes pulsemove{
+  0%{ offset-distance:0%; opacity:0; }
+  8%{ opacity:1; }
+  92%{ opacity:1; }
+  100%{ offset-distance:100%; opacity:0; }
+}
+
+/* ---------- Section shells ---------- */
+section{padding:96px 0;}
+.section-head{max-width:640px; margin-bottom:56px;}
+.section-head h2{font-size:clamp(26px, 3vw, 36px); font-weight:800; margin-bottom:16px; line-height:1.35;}
+.section-head p{color:var(--muted); font-size:16.5px;}
+
+.divider{height:1px; background:var(--line); border:none;}
+
+/* ---------- Why / Features ---------- */
+.feature-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+}
+@media (max-width:860px){ .feature-grid{grid-template-columns:1fr;} }
+.feature-cell{
+  background:var(--bg-soft);
+  padding:34px 30px;
+  transition:background .2s;
+}
+.feature-cell:hover{background:var(--surface);}
+.feature-icon{width:38px; height:38px; margin-bottom:20px; color:var(--accent);}
+.feature-cell h3{font-size:18px; font-weight:700; margin-bottom:10px;}
+.feature-cell p{color:var(--muted); font-size:15px;}
+
+/* ---------- Process ---------- */
+.process{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+}
+@media (max-width:900px){ .process{grid-template-columns:1fr 1fr;} }
+@media (max-width:560px){ .process{grid-template-columns:1fr;} }
+.step{position:relative; padding-inline-start:22px; border-inline-start:2px solid var(--line);}
+.step.is-last{border-color:transparent;}
+.step .num{
+  position:absolute; right:-9px; top:0;
+  width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--accent);
+}
+.step h4{font-size:16.5px; font-weight:700; margin-bottom:10px;}
+.step p{color:var(--muted); font-size:14.5px;}
+
+/* ---------- Use cases ---------- */
+.usecase-grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:18px;
+}
+@media (max-width:760px){ .usecase-grid{grid-template-columns:1fr;} }
+.usecase{
+  display:flex; gap:18px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:26px;
+}
+.usecase-icon{
+  flex:0 0 auto; width:46px; height:46px; border-radius:12px;
+  background:var(--accent-soft); color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+}
+.usecase-icon svg{width:24px; height:24px;}
+.usecase h4{font-size:16.5px; font-weight:700; margin-bottom:6px;}
+.usecase p{color:var(--muted); font-size:14.5px;}
+
+/* ---------- Family strip ---------- */
+.family{
+  background:var(--bg-soft);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.family-row{
+  display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  padding:36px 0;
+}
+.family-label{color:var(--muted-dim); font-size:14px; font-weight:600; white-space:nowrap;}
+.family-items{display:flex; gap:28px; flex-wrap:wrap;}
+.family-items span{color:var(--muted); font-size:15px; font-weight:600;}
+.family-items span:hover{color:var(--text);}
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background:linear-gradient(135deg, var(--surface), var(--bg-soft));
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:56px;
+  display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
+}
+.cta-band h2{font-size:clamp(22px,2.6vw,30px); font-weight:800; max-width:22ch;}
+.cta-band p{color:var(--muted); margin-top:10px; max-width:44ch;}
+
+/* ---------- Lead form ---------- */
+.lead-form{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:32px;
+}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+@media (max-width:640px){ .form-row{grid-template-columns:1fr;} }
+.field{margin-bottom:18px;}
+.form-row .field{margin-bottom:0;}
+.field label{display:block; font-size:14px; color:var(--muted); margin-bottom:8px; font-weight:600;}
+.field input, .field textarea{
+  width:100%; background:var(--bg-soft); border:1px solid var(--line); border-radius:10px;
+  padding:12px 14px; color:var(--text); font-family:inherit; font-size:15px;
+  transition:border-color .18s;
+}
+.field input:focus, .field textarea:focus{outline:none; border-color:var(--accent-line);}
+.field textarea{resize:vertical;}
+.lead-status{margin-top:14px; color:var(--muted); font-size:14px; min-height:20px;}
+
+/* ---------- Footer ---------- */
+footer{padding:64px 0 40px; border-top:1px solid var(--line);}
+.foot-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px;
+  margin-bottom:48px;
+}
+@media (max-width:760px){ .foot-grid{grid-template-columns:1fr;} }
+.foot-brand p{color:var(--muted); font-size:14.5px; max-width:34ch; margin-top:14px;}
+.foot-col h5{font-size:14px; color:var(--muted-dim); font-weight:600; margin-bottom:16px;}
+.foot-col a, .foot-col li{color:var(--muted); font-size:14.5px; margin-bottom:12px; display:block;}
+.foot-col a:hover{color:var(--text);}
+.foot-bottom{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  color:var(--muted-dim); font-size:13.5px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
+        <rect x="1" y="1" width="30" height="30" rx="9" stroke="#22B8A0" stroke-width="1.6"/>
+        <path d="M9 20 L14 12 L18 17 L23 9" stroke="#22B8A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Morfo <span style="color:var(--accent)">Flow</span></span>
+      <span class="brand-sub">از مجموعه Morfo</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">چرا Morfo Flow</a>
+      <a href="#process">فرایند کار</a>
+      <a href="#usecases">برای چه کسب‌وکاری</a>
+      <a href="#contact">تماس</a>
+    </nav>
+    <a href="#contact" class="nav-cta">شروع پروژه</a>
+    <a href="login.html" class="btn-ghost" style="margin-inline-start:12px;">ورود</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> بخشی از خانواده Morfo</div>
+        <h1>سیستم اتوماسیون کسب‌وکار شما را<br><span class="line2">ما طراحی و اجرا می‌کنیم</span></h1>
+        <p class="lead">
+          به‌جای خرید یک ابزار عمومی، یک اتوماسیون اختصاصی برای کسب‌وکار خودتان تحویل می‌گیرید؛
+          از پاسخ‌گویی خودکار به مشتری تا مدیریت سفارش و یادآوری‌های مالی، متصل به ابزارهایی که همین حالا استفاده می‌کنید.
+        </p>
+        <div class="cta-row">
+          <a href="#contact" class="btn-primary">درخواست مشاوره رایگان</a>
+          <a href="#process" class="btn-ghost">فرایند کار را ببینید</a>
+        </div>
+        <div class="hero-trust">
+          <div class="stat"><b>&lt; ۷ روز</b><span>زمان راه‌اندازی نسخه اول</span></div>
+          <div class="stat"><b>۲۴/۷</b><span>پشتیبانی تلگرامی</span></div>
+          <div class="stat"><b>۱۰۰٪</b><span>طراحی اختصاصی برای شما</span></div>
+        </div>
+      </div>
+
+      <div class="flow-panel">
+        <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg">
+          <path class="edge" d="M120 70 C 200 70, 200 130, 260 150" />
+          <path class="edge-active" d="M120 70 C 200 70, 200 130, 260 150" />
+          <path class="edge" d="M120 200 C 190 200, 190 165, 260 155" />
+          <path class="edge-active" d="M120 200 C 190 200, 190 165, 260 155" />
+          <path class="edge" d="M120 320 C 190 320, 190 220, 260 165" />
+          <path class="edge" d="M340 155 C 380 155, 380 250, 340 300" />
+          <path class="edge-active" d="M340 155 C 380 155, 380 250, 340 300" />
+
+          <g>
+            <rect class="node" x="14" y="46" width="112" height="48" rx="10"/>
+            <text class="node-label" x="70" y="68" text-anchor="middle">پیام مشتری</text>
+            <text class="node-sub" x="70" y="83" text-anchor="middle">تلگرام / اینستاگرام</text>
+          </g>
+          <g>
+            <rect class="node" x="14" y="176" width="112" height="48" rx="10"/>
+            <text class="node-label" x="70" y="198" text-anchor="middle">سفارش جدید</text>
+            <text class="node-sub" x="70" y="213" text-anchor="middle">فروشگاه آنلاین</text>
+          </g>
+          <g>
+            <rect class="node" x="14" y="296" width="112" height="48" rx="10"/>
+            <text class="node-label" x="70" y="318" text-anchor="middle">فاکتور معوق</text>
+            <text class="node-sub" x="70" y="333" text-anchor="middle">حسابداری</text>
+          </g>
+
+          <g>
+            <rect class="node" x="258" y="122" width="128" height="56" rx="12" fill="var(--accent-soft)" stroke="var(--accent-line)"/>
+            <text class="node-label" x="322" y="147" text-anchor="middle">موتور اتوماسیون</text>
+            <text class="node-sub" x="322" y="163" text-anchor="middle">Morfo Flow</text>
+          </g>
+
+          <g>
+            <rect class="node" x="302" y="276" width="112" height="48" rx="10"/>
+            <text class="node-label" x="358" y="298" text-anchor="middle">پاسخ / اقدام</text>
+            <text class="node-sub" x="358" y="313" text-anchor="middle">خودکار و آنی</text>
+          </g>
+
+          <circle class="pulse" r="4" style="offset-path:path('M120 70 C 200 70, 200 130, 260 150'); animation:pulsemove 3.2s linear infinite;"/>
+          <circle class="pulse" r="4" style="offset-path:path('M340 155 C 380 155, 380 250, 340 300'); animation:pulsemove 3.2s linear infinite 1.4s;"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>یک ابزار عمومی نیست؛ سیستم شماست</h2>
+        <p>هر کسب‌وکار روش کار متفاوتی دارد. به همین دلیل هر اتوماسیون از صفر برای گردش‌کار همان کسب‌وکار طراحی و متصل می‌شود.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-cell">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h10M4 18h13"/>
+            <path d="M19 15l2 2 4-4" transform="translate(-4,-2)"/>
+          </svg>
+          <h3>طراحی اختصاصی گردش‌کار</h3>
+          <p>روال فعلی کسب‌وکار شما بررسی می‌شود و اتوماسیون دقیقاً روی همان روال پیاده می‌شود، نه برعکس.</p>
+        </div>
+        <div class="feature-cell">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="7" cy="12" r="3"/>
+            <circle cx="17" cy="6" r="3"/>
+            <circle cx="17" cy="18" r="3"/>
+            <path d="M9.6 10.6L14.4 7.4M9.6 13.4L14.4 16.6"/>
+          </svg>
+          <h3>اتصال به ابزارهای فعلی شما</h3>
+          <p>تلگرام، اینستاگرام، فروشگاه آنلاین، صندوق و حسابداری — بدون نیاز به تغییر ابزارهایی که همین حالا کار می‌کنند.</p>
+        </div>
+        <div class="feature-cell">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>
+            <circle cx="12" cy="12" r="5"/>
+          </svg>
+          <h3>پشتیبانی و بهبود مستمر</h3>
+          <p>پس از راه‌اندازی، سیستم رها نمی‌شود؛ با رشد کسب‌وکار شما، اتوماسیون هم به‌روزرسانی می‌شود.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>از جلسه اول تا اجرا، چهار قدم</h2>
+        <p>مسیر کار با هر کسب‌وکار همیشه همین چهار مرحله را طی می‌کند.</p>
+      </div>
+      <div class="process">
+        <div class="step"><span class="num"></span>
+          <h4>۱. شناخت کسب‌وکار</h4>
+          <p>یک گفت‌وگوی کوتاه برای فهمیدن دقیق نقطه‌ای که وقت و انرژی تیم شما را می‌گیرد.</p>
+        </div>
+        <div class="step"><span class="num"></span>
+          <h4>۲. طراحی گردش‌کار</h4>
+          <p>نقشه دقیق اتوماسیون پیشنهادی، پیش از هر خط کد، برای تأیید شما آماده می‌شود.</p>
+        </div>
+        <div class="step"><span class="num"></span>
+          <h4>۳. ساخت و اتصال</h4>
+          <p>سیستم ساخته و به ابزارهای فعلی کسب‌وکار شما متصل و تست می‌شود.</p>
+        </div>
+        <div class="step is-last"><span class="num"></span>
+          <h4>۴. تحویل و پشتیبانی</h4>
+          <p>سیستم تحویل داده می‌شود و پشتیبانی تلگرامی برای رفع نیازهای بعدی ادامه دارد.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="usecases">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>برای چه کسب‌وکارهایی مناسب است</h2>
+        <p>چند نمونه از اتوماسیون‌هایی که برای کسب‌وکارهای واقعی طراحی می‌شود.</p>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase">
+          <div class="usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <div>
+            <h4>فروشگاه‌های آنلاین</h4>
+            <p>پاسخ خودکار به سوالات تکراری، پیگیری سبد خرید رهاشده و اطلاع‌رسانی وضعیت سفارش.</p>
+          </div>
+        </div>
+        <div class="usecase">
+          <div class="usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M9 16h6M9 8h6M5 3h14v18l-4-3-3 3-3-3-4 3V3z"/></svg>
+          </div>
+          <div>
+            <h4>خدمات و کلینیک‌ها</h4>
+            <p>رزرو نوبت خودکار، یادآوری پیش از قرار ملاقات و پیگیری رضایت پس از خدمت.</p>
+          </div>
+        </div>
+        <div class="usecase">
+          <div class="usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h11"/></svg>
+          </div>
+          <div>
+            <h4>آژانس‌ها و مشاوران</h4>
+            <p>غربالگری خودکار درخواست‌های ورودی و زمان‌بندی جلسات بدون رفت‌وبرگشت پیام.</p>
+          </div>
+        </div>
+        <div class="usecase">
+          <div class="usecase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div>
+            <h4>کسب‌وکارهای خدماتی</h4>
+            <p>صدور خودکار فاکتور، یادآوری پرداخت‌های معوق و گزارش‌گیری دوره‌ای.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY STRIP -->
+  <div class="family">
+    <div class="wrap family-row">
+      <span class="family-label">بخشی از مجموعه محصولات Morfo</span>
+      <div class="family-items">
+        <span>مورفوپرس</span>
+        <span>Morfo Document</span>
+        <span>Morfo AI</span>
+        <span>Morfo AI Bot</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA / FORM -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>درخواست مشاوره رایگان</h2>
+        <p>فرم زیر را پر کنید؛ تیم مورفو در اسرع وقت از طریق تلگرام یا تماس تلفنی با شما هماهنگ می‌کند.</p>
+      </div>
+
+      <form id="leadForm" class="lead-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">نام و نام خانوادگی</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-biz">نام کسب‌وکار</label>
+            <input id="f-biz" name="business" type="text" required autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-phone">شماره تماس / آیدی تلگرام</label>
+            <input id="f-phone" name="phone" type="text" required>
+          </div>
+          <div class="field">
+            <label for="f-type">نوع کسب‌وکار</label>
+            <input id="f-type" name="type" type="text" placeholder="مثلاً فروشگاه آنلاین، کلینیک، آژانس">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-desc">چه کاری می‌خواهید خودکار شود؟</label>
+          <textarea id="f-desc" name="description" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="leadSubmit">ارسال درخواست</button>
+        <p id="leadStatus" class="lead-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="cta-band" style="margin-top:32px;">
+        <div>
+          <h2>ترجیح می‌دهید مستقیم صحبت کنید؟</h2>
+          <p>می‌توانید همین حالا در تلگرام با ما در تماس باشید.</p>
+        </div>
+        <a href="https://t.me/morfo_company_support" class="btn-ghost" target="_blank" rel="noopener">شروع گفت‌وگو در تلگرام</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const leadForm = document.getElementById('leadForm');
+    const leadStatus = document.getElementById('leadStatus');
+    const leadSubmit = document.getElementById('leadSubmit');
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      leadSubmit.disabled = true;
+      leadStatus.textContent = 'در حال ارسال...';
+      const data = Object.fromEntries(new FormData(leadForm).entries());
+      try {
+        const res = await fetch('/api/request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('failed');
+        leadStatus.textContent = 'درخواست شما ثبت شد. به‌زودی با شما تماس می‌گیریم.';
+        leadForm.reset();
+      } catch (err) {
+        leadStatus.textContent = 'ارسال با مشکل مواجه شد. لطفاً از طریق تلگرام پیام دهید.';
+      } finally {
+        leadSubmit.disabled = false;
+      }
+    });
+  </script>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand" style="font-size:18px;">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
+            <rect x="1" y="1" width="30" height="30" rx="9" stroke="#22B8A0" stroke-width="1.6"/>
+            <path d="M9 20 L14 12 L18 17 L23 9" stroke="#22B8A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Morfo Flow</span>
+        </div>
+        <p>سیستم اتوماسیون اختصاصی برای کسب‌وکارهایی که وقتشان را می‌خواهند صرف کار اصلی‌شان کنند، نه کارهای تکراری.</p>
+      </div>
+      <div class="foot-col">
+        <h5>صفحات</h5>
+        <a href="#features">چرا Morfo Flow</a>
+        <a href="#process">فرایند کار</a>
+        <a href="#usecases">کاربردها</a>
+      </div>
+      <div class="foot-col">
+        <h5>ارتباط</h5>
+        <a href="https://t.me/morfo_company_support" target="_blank" rel="noopener">پشتیبانی تلگرام</a>
+        <a href="https://themorfo.ir" target="_blank" rel="noopener">مجموعه Morfo</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© ۱۴۰۵ Morfo Flow — بخشی از مجموعه Morfo</span>
+      <span>طراحی و توسعه اختصاصی</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

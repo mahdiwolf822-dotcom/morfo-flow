@@ -1,0 +1,19 @@
+name = "morfo-flow"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "public"
+
+# --- Cloudflare D1: پایگاه داده اصلی (کاربران + همه درخواست‌ها، چه از سایت چه از داشبورد) ---
+[[d1_databases]]
+binding = "MORFO_DB"
+database_name = "morfo-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# --- متغیرهای محیطی که باید در Cloudflare Dashboard تنظیم شوند ---
+# (این مقادیر را اینجا ننویس؛ فقط در Settings -> Environment Variables وارد کن)
+#   ADMIN_TOKEN          -> یک رشته تصادفی طولانی برای ورود به پنل ادمین
+#   SESSION_SECRET       -> یک رشته تصادفی طولانی برای امضای نشست‌های ورود
+#   GOOGLE_CLIENT_ID     -> از Google Cloud Console
+#   GOOGLE_CLIENT_SECRET -> از Google Cloud Console
+#   GOOGLE_REDIRECT_URI  -> مثلاً https://themorfo.ir/api/auth/google-callback
+#   TELEGRAM_BOT_TOKEN   -> از @BotFather (اختیاری، برای اعلان درخواست جدید)
+#   TELEGRAM_CHAT_ID     -> آیدی عددی چتی که پیام‌ها باید بهش برن (اختیاری)
