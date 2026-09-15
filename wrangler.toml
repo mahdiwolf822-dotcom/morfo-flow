@@ -2,7 +2,7 @@ name = "morfo-flow"
 compatibility_date = "2026-09-01"
 pages_build_output_dir = "public"
 
-# --- Cloudflare D1: پایگاه داده اصلی (کاربران + همه درخواست‌ها، چه از سایت چه از داشبورد) ---
+# --- Cloudflare D1: پایگاه داده اصلیی (کاربران + همه درخواست‌ها، چه از سایت چه از داشبورد) ---
 [[d1_databases]]
 binding = "MORFO_DB"
 database_name = "morfo-db"
