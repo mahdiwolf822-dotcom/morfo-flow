@@ -6,7 +6,7 @@ pages_build_output_dir = "public"
 [[d1_databases]]
 binding = "MORFO_DB"
 database_name = "morfo-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "dfcbecac-8445-478a-a0a6-d2efa613af3f"
 
 # --- متغیرهای محیطی که باید در Cloudflare Dashboard تنظیم شوند ---
 # (این مقادیر را اینجا ننویس؛ فقط در Settings -> Environment Variables وارد کن)
