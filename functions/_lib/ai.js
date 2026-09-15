@@ -43,7 +43,7 @@ export async function generateAiReply({ provider, apiKey, instructions, userMess
 }
 
 async function generateGeminiReply({ apiKey, systemPrompt, userMessage }) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
 
   const res = await fetch(url, {
     method: 'POST',
