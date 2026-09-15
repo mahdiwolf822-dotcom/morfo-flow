@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>قیمت‌گذاری | Morfo Flow</title>
+<meta name="description" content="پلن رایگان و حرفه‌ای Morfo Flow — همین حالا رایگان شروع کن، هر وقت خواستی ارتقا بده.">
+<meta name="theme-color" content="#0A0C10">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<style>
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-SemiBold.woff2') format('woff2');
+  font-weight:600; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight:700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-ExtraBold.woff2') format('woff2');
+  font-weight:800; font-style:normal; font-display:swap;
+}
+:root{
+  --bg:#0A0C10; --bg-soft:#0D1015; --surface:#12161D; --surface-hi:#171B23;
+  --line:#212630; --text:#EDEFF3; --muted:#8B93A3; --muted-dim:#5C6473;
+  --accent:#22B8A0; --accent-soft:rgba(34,184,160,.14); --accent-line:rgba(34,184,160,.35);
+  --radius-m:16px; --maxw:1080px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:var(--bg); color:var(--text); font-family:'Vazirmatn','Segoe UI',Tahoma,sans-serif;
+  line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit; text-decoration:none;} button{font-family:inherit; cursor:pointer;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+@media (max-width:640px){ .wrap{padding:0 20px;} }
+
+header{ border-bottom:1px solid var(--line); background:rgba(10,12,16,.85); backdrop-filter:blur(12px); position:sticky; top:0; z-index:10; }
+.nav{ display:flex; align-items:center; justify-content:space-between; height:70px; }
+.brand{ display:flex; align-items:center; gap:9px; font-weight:700; font-size:17px; }
+.brand svg{ width:26px; height:26px; }
+.nav-links{ display:flex; align-items:center; gap:28px; }
+.nav-links a{ color:var(--muted); font-size:14.5px; font-weight:500; }
+.nav-links a:hover{ color:var(--text); }
+.nav-cta{ padding:9px 18px; border-radius:999px; background:var(--accent); color:#06231D; font-weight:700; font-size:14px; }
+@media (max-width:760px){ .nav-links{ display:none; } }
+
+.hero{ text-align:center; padding:80px 0 56px; }
+.hero h1{ font-size:clamp(28px,4vw,42px); font-weight:800; margin-bottom:16px; }
+.hero p{ color:var(--muted); font-size:16px; max-width:52ch; margin:0 auto; }
+
+.plans{ display:grid; grid-template-columns:1fr 1fr; gap:24px; padding-bottom:70px; }
+@media (max-width:760px){ .plans{ grid-template-columns:1fr; } }
+.plan-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:36px;
+  display:flex; flex-direction:column;
+}
+.plan-card.featured{ border-color:var(--accent-line); background:linear-gradient(180deg, var(--surface), var(--bg-soft)); position:relative; }
+.featured-badge{
+  position:absolute; top:-13px; right:32px; background:var(--accent); color:#06231D; font-size:12px; font-weight:800;
+  padding:5px 14px; border-radius:999px;
+}
+.plan-name{ font-size:14px; color:var(--muted); font-weight:700; margin-bottom:10px; }
+.plan-price{ font-size:38px; font-weight:800; margin-bottom:4px; }
+.plan-price span{ font-size:15px; color:var(--muted); font-weight:500; }
+.plan-desc{ color:var(--muted); font-size:14px; margin-bottom:28px; }
+.plan-features{ list-style:none; margin-bottom:32px; flex:1; }
+.plan-features li{ display:flex; align-items:flex-start; gap:10px; padding:9px 0; font-size:14.5px; color:var(--text); border-top:1px solid var(--line); }
+.plan-features li:first-child{ border-top:none; }
+.plan-features li svg{ flex:0 0 auto; width:18px; height:18px; color:var(--accent); margin-top:2px; }
+.plan-features li.muted{ color:var(--muted-dim); }
+.plan-features li.muted svg{ color:var(--muted-dim); }
+.plan-btn{
+  display:block; text-align:center; padding:14px; border-radius:11px; font-weight:700; font-size:15px;
+}
+.plan-btn.primary{ background:var(--accent); color:#06231D; }
+.plan-btn.primary:hover{ opacity:.92; }
+.plan-btn.ghost{ background:none; border:1px solid var(--line); color:var(--text); }
+.plan-btn.ghost:hover{ border-color:var(--accent-line); }
+
+.channels-note{ text-align:center; padding-bottom:70px; color:var(--muted); font-size:14px; }
+.channels-note b{ color:var(--text); }
+
+.faq{ padding-bottom:90px; }
+.faq h2{ text-align:center; font-size:24px; font-weight:800; margin-bottom:36px; }
+.faq-item{ border-top:1px solid var(--line); padding:20px 0; max-width:720px; margin:0 auto; }
+.faq-item:last-child{ border-bottom:1px solid var(--line); }
+.faq-item h3{ font-size:15.5px; font-weight:700; margin-bottom:8px; }
+.faq-item p{ color:var(--muted); font-size:14px; }
+
+footer{ border-top:1px solid var(--line); padding:32px 0; text-align:center; color:var(--muted-dim); font-size:13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="9" stroke="#22B8A0" stroke-width="1.6"/><path d="M9 20 L14 12 L18 17 L23 9" stroke="#22B8A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Morfo Flow</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">صفحه اصلی</a>
+      <a href="pricing.html">قیمت‌گذاری</a>
+      <a href="login.html">ورود</a>
+    </nav>
+    <a href="login.html" class="nav-cta">شروع رایگان</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>یک پلن ساده، بدون تعهد</h1>
+      <p>همین حالا رایگان یک کانال پاسخگوی خودکار بساز. هر وقت کسب‌وکارت بزرگ‌تر شد، ارتقا بده.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="plans">
+      <div class="plan-card">
+        <div class="plan-name">رایگان</div>
+        <div class="plan-price">۰ تومان</div>
+        <p class="plan-desc">برای امتحان کردن و شروع کسب‌وکارهای کوچک.</p>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> ۱ کانال (تلگرام یا ویجت وب‌سایت)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> ۳ قانون پاسخ خودکار</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> پنل مدیریت اختصاصی</li>
+          <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> چند کانال هم‌زمان</li>
+          <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> پشتیبانی اولویت‌دار</li>
+        </ul>
+        <a href="login.html" class="plan-btn ghost">شروع رایگان</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="featured-badge">محبوب‌ترین</span>
+        <div class="plan-name">حرفه‌ای</div>
+        <div class="plan-price">به‌زودی <span>/ ماهانه</span></div>
+        <p class="plan-desc">برای کسب‌وکارهایی که می‌خوان جدی اتوماسیون کنن.</p>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> تا ۲۰ کانال هم‌زمان</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> تا ۲۰۰ قانون برای هر کانال</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> تلگرام و ویجت وب‌سایت با هم</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> پشتیبانی اولویت‌دار در تلگرام</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> اولویت در فعال‌سازی اینستاگرام/واتساپ</li>
+        </ul>
+        <a href="https://t.me/morfo_company_support" target="_blank" rel="noopener" class="plan-btn primary">اطلاع بده وقتی آماده شد</a>
+      </div>
+    </div>
+  </section>
+
+  <p class="channels-note">
+    فعلاً <b>تلگرام</b> و <b>ویجت وب‌سایت</b> کاملاً خودکار و آماده‌ست. <b>اینستاگرام</b> و <b>واتساپ</b> نیاز به تایید رسمی متا دارن و به محض آماده شدن، برای کاربرهای حرفه‌ای فعال می‌شن.
+  </p>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>سوالات پرتکرار</h2>
+      <div class="faq-item">
+        <h3>پلن رایگان واقعاً رایگانه؟</h3>
+        <p>بله، بدون نیاز به کارت بانکی. فقط با یک ایمیل یا حساب گوگل ثبت‌نام کن.</p>
+      </div>
+      <div class="faq-item">
+        <h3>نیاز به دانش فنی دارم؟</h3>
+        <p>نه. برای تلگرام فقط یک ربات رایگان از BotFather می‌سازی و توکنش رو کپی می‌کنی. برای ویجت وب‌سایت، یک خط کد داریم که کپی می‌کنی و روی سایتت می‌ذاری.</p>
+      </div>
+      <div class="faq-item">
+        <h3>می‌تونم بعداً به پلن حرفه‌ای ارتقا بدم؟</h3>
+        <p>بله، به محض راه‌اندازی درگاه پرداخت. تا اون‌موقع می‌تونی از طریق تلگرام با پشتیبانی هماهنگ کنی.</p>
+      </div>
+      <div class="faq-item">
+        <h3>اینستاگرام و واتساپ کی اضافه می‌شن؟</h3>
+        <p>این دو پلتفرم نیاز به بررسی و تایید رسمی از طرف متا (فیسبوک) دارن که خارج از کنترل ماست. به محض تایید، برای کاربرهای پلن حرفه‌ای فعال می‌شه.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © ۱۴۰۵ Morfo Flow — بخشی از مجموعه Morfo
+</footer>
+
+</body>
+</html>

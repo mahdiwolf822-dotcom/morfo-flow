@@ -6,7 +6,7 @@ pages_build_output_dir = "public"
 [[d1_databases]]
 binding = "MORFO_DB"
 database_name = "morfo-db"
-database_id = "dfcbecac-8445-478a-a0a6-d2efa613af3f"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
 
 # --- متغیرهای محیطی که باید در Cloudflare Dashboard تنظیم شوند ---
 # (این مقادیر را اینجا ننویس؛ فقط در Settings -> Environment Variables وارد کن)
@@ -17,3 +17,8 @@ database_id = "dfcbecac-8445-478a-a0a6-d2efa613af3f"
 #   GOOGLE_REDIRECT_URI  -> مثلاً https://themorfo.ir/api/auth/google-callback
 #   TELEGRAM_BOT_TOKEN   -> از @BotFather (اختیاری، برای اعلان درخواست جدید)
 #   TELEGRAM_CHAT_ID     -> آیدی عددی چتی که پیام‌ها باید بهش برن (اختیاری)
+#   ENCRYPTION_KEY       -> یک رشته تصادفی طولانی برای رمزنگاری کلیدهای AI مشتری‌ها (الزامی برای قابلیت پاسخ هوشمند)
+#   INSTAGRAM_APP_ID             -> از Meta for Developers
+#   INSTAGRAM_APP_SECRET         -> از Meta for Developers
+#   INSTAGRAM_REDIRECT_URI       -> مثلاً https://themorfo.ir/api/instagram/oauth-callback
+#   INSTAGRAM_WEBHOOK_VERIFY_TOKEN -> یک رشته دلخواه که خودت انتخاب می‌کنی و در تنظیمات وبهوک اپ متا هم همون رو می‌ذاری

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحه پیدا نشد | Morfo Flow</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0C10">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Vazirmatn';
+  src:url('assets/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight:700; font-style:normal; font-display:swap;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:#0A0C10; color:#EDEFF3; font-family:'Vazirmatn','Segoe UI',Tahoma,sans-serif;
+  min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;
+}
+.wrap{ max-width:420px; }
+svg.mark{ width:52px; height:52px; margin-bottom:24px; }
+h1{ font-size:56px; font-weight:700; color:#22B8A0; margin-bottom:8px; }
+p{ color:#8B93A3; font-size:15px; margin-bottom:28px; line-height:1.7; }
+a.btn{
+  display:inline-block; background:#22B8A0; color:#06231D; font-weight:700; padding:12px 26px;
+  border-radius:11px; text-decoration:none; font-size:14.5px;
+}
+
+.dots path{ stroke-dasharray:6 8; animation:dash 4s linear infinite; }
+@keyframes dash{ to{ stroke-dashoffset:-140; } }
+@media (prefers-reduced-motion: reduce){ .dots path{ animation:none; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <svg class="mark dots" viewBox="0 0 120 60" fill="none">
+      <circle cx="14" cy="30" r="5" fill="#22B8A0"/>
+      <circle cx="106" cy="30" r="5" fill="#22B8A0" opacity=".35"/>
+      <path d="M19 30 H101" stroke="#22B8A0" stroke-width="2"/>
+    </svg>
+    <h1>۴۰۴</h1>
+    <p>این مسیر توی نقشه اتوماسیون ما تعریف نشده. شاید لینک عوض شده یا اشتباه تایپ شده باشه.</p>
+    <a href="/" class="btn">بازگشت به صفحه اصلی</a>
+  </div>
+</body>
+</html>

@@ -124,6 +124,182 @@ main{padding:44px 0 80px;}
 .empty{ text-align:center; padding:36px 20px; color:var(--muted); border:1px dashed var(--line); border-radius:12px; font-size:14px; }
 .loading{ text-align:center; padding:30px 0; color:var(--muted); font-size:14px; }
 
+/* ---------- Plan usage banner ---------- */
+.plan-banner{
+  display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  background:linear-gradient(135deg, var(--surface), var(--bg-soft)); border:1px solid var(--line);
+  border-radius:var(--radius-m); padding:20px 24px; margin-bottom:28px;
+}
+.plan-banner .info{display:flex; flex-direction:column; gap:8px;}
+.plan-badge{
+  display:inline-flex; width:fit-content; font-size:12px; font-weight:800; padding:4px 11px; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent);
+}
+.plan-badge.pro{ background:rgba(62,140,240,.16); color:#3E8CF0; }
+.usage-bars{display:flex; gap:22px; flex-wrap:wrap;}
+.usage-item{display:flex; flex-direction:column; gap:5px; min-width:140px;}
+.usage-item .label{font-size:12px; color:var(--muted);}
+.usage-track{width:100%; height:6px; border-radius:99px; background:var(--bg-soft); overflow:hidden;}
+.usage-fill{height:100%; background:var(--accent); border-radius:99px; transition:width .3s;}
+.usage-fill.full{ background:#E0B23A; }
+.btn-upgrade{
+  padding:10px 20px; border-radius:10px; border:1px solid var(--accent-line); background:var(--accent-soft);
+  color:var(--accent); font-weight:700; font-size:13.5px; white-space:nowrap;
+}
+.btn-upgrade:hover{ background:var(--accent); color:#06231D; }
+
+/* ---------- Automation cards ---------- */
+.automation-card{
+  background:var(--bg-soft); border:1px solid var(--line); border-radius:14px; padding:22px; margin-bottom:16px;
+}
+.automation-head{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;}
+.automation-title{display:flex; align-items:center; gap:10px;}
+.automation-title h3{font-size:15.5px; font-weight:700;}
+.bot-handle{color:var(--accent); font-size:13px; font-weight:600; direction:ltr; display:inline-block;}
+.status-dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block;}
+.btn-danger-ghost{
+  padding:7px 13px; border-radius:8px; border:1px solid var(--line); background:none; color:var(--muted); font-size:12.5px; font-weight:600;
+}
+.btn-danger-ghost:hover{ color:#E05A5A; border-color:#E05A5A; }
+
+.rule-row{
+  display:flex; align-items:center; gap:12px; padding:10px 0; border-top:1px solid var(--line);
+}
+.rule-row:first-of-type{ border-top:none; }
+.rule-kw{ font-size:13.5px; font-weight:700; background:var(--surface); padding:5px 11px; border-radius:8px; white-space:nowrap; }
+.rule-arrow{ color:var(--muted-dim); }
+.rule-reply{ flex:1; font-size:13.5px; color:var(--muted); }
+.rule-del{ color:var(--muted-dim); background:none; border:none; padding:4px; }
+.rule-del:hover{ color:#E05A5A; }
+
+.add-rule-row{ display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+.add-rule-row input{
+  background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:9px 12px;
+  color:var(--text); font-family:inherit; font-size:13.5px;
+}
+.add-rule-row input.kw{ width:140px; }
+.add-rule-row input.reply{ flex:1; min-width:180px; }
+.btn-small{
+  padding:9px 16px; border-radius:9px; border:none; background:var(--accent); color:#06231D; font-weight:700; font-size:13px;
+}
+.btn-small:disabled{ opacity:.5; pointer-events:none; }
+
+.limit-note{ font-size:12.5px; color:var(--warn); margin-top:10px; }
+
+/* ---------- AI config / stats / live test (advanced section) ---------- */
+.adv-toggle{
+  background:none; border:none; color:var(--muted); font-size:12.5px; font-weight:600; padding:10px 0 0;
+  display:flex; align-items:center; gap:5px;
+}
+.adv-toggle:hover{ color:var(--text); }
+.adv-toggle svg{ width:13px; height:13px; transition:transform .2s; }
+.adv-toggle.open svg{ transform:rotate(180deg); }
+.adv-section{ display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+.adv-section.open{ display:block; }
+
+.stats-line{
+  display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin-bottom:16px;
+}
+.stats-line b{ color:var(--text); }
+
+.ai-box{ background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:16px; margin-bottom:16px; }
+.ai-status-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:4px; }
+.ai-status-row .label{ font-size:13.5px; font-weight:700; }
+.ai-pill{ font-size:11.5px; font-weight:800; padding:3px 10px; border-radius:999px; white-space:nowrap; }
+.ai-pill.on{ background:var(--accent-soft); color:var(--accent); }
+.ai-pill.off{ background:var(--bg-soft); color:var(--muted-dim); }
+.ai-desc{ color:var(--muted); font-size:12.5px; margin-bottom:14px; }
+
+.provider-grid{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:4px; }
+.provider-chip{
+  position:relative; display:flex; align-items:center; gap:7px; padding:8px 12px 8px 26px;
+  border-radius:10px; border:1px solid var(--line); background:var(--bg-soft); color:var(--muted);
+  font-family:inherit; font-size:12.5px; font-weight:600; cursor:pointer; transition:all .15s;
+}
+.provider-chip:hover{ border-color:var(--accent-line); color:var(--text); }
+.provider-chip.connected{ border-color:var(--muted-dim); color:var(--text); }
+.provider-chip.active{
+  background:var(--accent-soft); border-color:var(--accent); color:var(--accent);
+}
+.chip-dot{ width:7px; height:7px; border-radius:50%; background:var(--muted-dim); flex:0 0 auto; }
+.provider-chip.connected .chip-dot{ background:var(--muted); }
+.provider-chip.active .chip-dot{ background:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.chip-remove{
+  position:absolute; left:6px; top:50%; transform:translateY(-50%); width:16px; height:16px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:var(--muted-dim); font-size:12px; line-height:1;
+}
+.chip-remove:hover{ background:rgba(224,90,90,.18); color:#E05A5A; }
+
+.ai-connect-form{ display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+.ai-connect-form.open{ display:block; }
+.ai-connect-form input{
+  width:100%; background:var(--bg-soft); border:1px solid var(--line); border-radius:9px; padding:10px 12px;
+  color:var(--text); font-family:inherit; font-size:13px; margin-bottom:8px; direction:ltr; text-align:left;
+}
+.ai-connect-form small{ display:block; color:var(--muted-dim); font-size:11.5px; margin-bottom:10px; }
+.ai-connect-form small a{ color:var(--accent); }
+
+.fallback-row{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line);
+}
+.fallback-row .fb-text{ font-size:12.5px; }
+.fallback-row .fb-text b{ display:block; font-size:13px; margin-bottom:2px; }
+.switch{ position:relative; display:inline-block; width:42px; height:24px; flex:0 0 auto; }
+.switch input{ opacity:0; width:0; height:0; }
+.switch .slider{
+  position:absolute; inset:0; background:var(--bg-soft); border:1px solid var(--line); border-radius:999px; cursor:pointer; transition:.2s;
+}
+.switch .slider::before{
+  content:''; position:absolute; width:16px; height:16px; right:3px; top:3px; background:var(--muted); border-radius:50%; transition:.2s;
+}
+.switch input:checked + .slider{ background:var(--accent-soft); border-color:var(--accent-line); }
+.switch input:checked + .slider::before{ background:var(--accent); transform:translateX(-18px); }
+
+.ai-instructions-row{ margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+.ai-instructions-row label{ display:block; font-size:12px; color:var(--muted); margin-bottom:7px; font-weight:600; }
+.ai-instructions-row textarea{
+  width:100%; background:var(--bg-soft); border:1px solid var(--line); border-radius:9px; padding:10px 12px;
+  color:var(--text); font-family:inherit; font-size:13px; margin-bottom:8px; resize:vertical;
+}
+.ai-msg{ font-size:12.5px; margin-top:8px; min-height:16px; }
+.ai-msg.error{ color:#E05A5A; }
+.ai-msg.success{ color:var(--accent); }
+
+.test-box{ background:var(--bg-soft); border:1px solid var(--line); border-radius:11px; padding:14px; }
+.test-msgs{ max-height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; margin-bottom:10px; min-height:40px; }
+.test-msg{ max-width:85%; padding:8px 12px; border-radius:10px; font-size:12.5px; line-height:1.6; }
+.test-msg.user{ background:var(--accent); color:#06231D; align-self:flex-end; }
+.test-msg.bot{ background:var(--surface); color:var(--text); align-self:flex-start; }
+.test-msg.bot.empty-note{ color:var(--muted-dim); font-style:italic; }
+.test-input-row{ display:flex; gap:8px; }
+.test-input-row input{ flex:1; background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:9px 12px; color:var(--text); font-family:inherit; font-size:13px; }
+
+.connect-card{
+  border:1.5px dashed var(--line); border-radius:var(--radius-m); padding:32px; text-align:center; margin-bottom:28px;
+}
+.connect-card h3{font-size:17px; font-weight:700; margin-bottom:8px;}
+.connect-card p{color:var(--muted); font-size:14px; max-width:48ch; margin:0 auto 22px;}
+.connect-steps{ text-align:right; max-width:420px; margin:0 auto 24px; }
+.connect-steps li{ color:var(--muted); font-size:13.5px; margin-bottom:8px; padding-inline-start:6px; }
+.connect-form{ max-width:420px; margin:0 auto; text-align:right; }
+
+.channel-tabs{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:22px; }
+.channel-tab{
+  padding:8px 14px; border-radius:9px; border:1px solid var(--line); background:var(--bg-soft);
+  color:var(--muted); font-size:12.5px; font-weight:600; font-family:inherit;
+}
+.channel-tab.active{ background:var(--accent); color:#06231D; border-color:var(--accent); }
+.channel-tab.disabled{ opacity:.45; cursor:not-allowed; }
+.channel-panel .connect-steps, .channel-panel .field{ max-width:420px; margin-left:auto; margin-right:auto; }
+
+.embed-box{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:16px;
+}
+.embed-code{
+  display:block; direction:ltr; text-align:left; word-break:break-all; background:var(--bg-soft);
+  padding:10px 12px; border-radius:8px; font-size:12px; color:var(--accent); font-family:monospace;
+}
+
 #authGate{ display:flex; align-items:center; justify-content:center; min-height:100vh; color:var(--muted); font-size:14px; }
 #appShell{ display:none; }
 </style>
@@ -151,11 +327,22 @@ main{padding:44px 0 80px;}
     <div class="wrap">
       <div class="welcome">
         <h1>سلام، <span id="welcomeName"></span> 👋</h1>
-        <p>از اینجا می‌تونی درخواست اتوماسیون جدید ثبت کنی و وضعیت درخواست‌های قبلی رو ببینی.</p>
+        <p>ربات تلگرام کسب‌وکارت رو وصل کن و بذار خودش جواب مشتری‌ها رو بده.</p>
       </div>
 
+      <div class="plan-banner">
+        <div class="info">
+          <span class="plan-badge" id="planBadge">پلن رایگان</span>
+          <div class="usage-bars" id="usageBars"></div>
+        </div>
+        <button class="btn-upgrade" id="upgradeBtn">ارتقا به حرفه‌ای</button>
+      </div>
+
+      <div id="automationsContainer"><div class="loading">در حال بارگذاری...</div></div>
+
       <div class="panel">
-        <h2>ثبت درخواست جدید</h2>
+        <h2>نیاز به یه چیز خاص‌تری داری؟</h2>
+        <p style="color:var(--muted); font-size:13.5px; margin-bottom:18px;">اگه اتوماسیونی می‌خوای که فراتر از پاسخ خودکار تلگرامه (مثل اتصال به فروشگاه یا حسابداری)، برامون توضیح بده.</p>
         <form id="reqForm">
           <div class="form-row">
             <div class="field">
@@ -175,17 +362,25 @@ main{padding:44px 0 80px;}
           <p class="form-msg" id="reqMsg" role="status" aria-live="polite"></p>
         </form>
       </div>
-
-      <div class="panel">
-        <h2>درخواست‌های من</h2>
-        <div id="reqList"><div class="loading">در حال بارگذاری...</div></div>
-      </div>
     </div>
   </main>
 </div>
 
 <script>
 let currentUser = null;
+let planLimits = { maxAutomations: 1, maxRulesPerAutomation: 3 };
+let userPlan = 'free';
+const openAdvIds = new Set(); // کدوم کارت‌ها بخش پیشرفته‌شون باز بوده، تا بعد از reload بسته نشه
+const openProviderForm = {}; // automationId -> provider که فرم اتصالش بازه
+
+const PROVIDERS = [
+  { id: 'gemini', label: 'Gemini', keyUrl: 'https://aistudio.google.com/apikey' },
+  { id: 'openai', label: 'OpenAI', keyUrl: 'https://platform.openai.com/api-keys' },
+  { id: 'anthropic', label: 'Claude', keyUrl: 'https://console.anthropic.com/settings/keys' },
+  { id: 'groq', label: 'Groq', keyUrl: 'https://console.groq.com/keys' },
+  { id: 'openrouter', label: 'OpenRouter', keyUrl: 'https://openrouter.ai/keys' },
+  { id: 'deepseek', label: 'DeepSeek', keyUrl: 'https://platform.deepseek.com/api_keys' },
+];
 
 async function boot(){
   try {
@@ -194,9 +389,30 @@ async function boot(){
     const data = await res.json();
     currentUser = data.user;
     showApp();
-    loadRequests();
+    loadAutomations();
+    showOAuthResultBanner();
   } catch (err) {
     window.location.href = '/login.html';
+  }
+}
+
+// بعد از برگشت از OAuth اینستاگرام، بر اساس ?ig_connected یا ?ig_error یه پیام مناسب نشون بده و URL رو تمیز کن
+function showOAuthResultBanner(){
+  const params = new URLSearchParams(window.location.search);
+  const IG_ERROR_MESSAGES = {
+    state: 'اتصال اینستاگرام لغو شد یا منقضی شد. دوباره تلاش کن.',
+    limit: 'به سقف کانال‌های پلن رایگانت رسیدی.',
+    oauth: 'اتصال به اینستاگرام ناموفق بود. دوباره تلاش کن.',
+    no_ig_account: 'پیج فیسبوکت به یک حساب اینستاگرام Business/Creator وصل نیست.',
+    server: 'سرور فعلاً آماده اتصال اینستاگرام نیست.',
+  };
+  if (params.get('ig_connected')){
+    alert('حساب اینستاگرام با موفقیت وصل شد! ✅');
+  } else if (params.get('ig_error')){
+    alert(IG_ERROR_MESSAGES[params.get('ig_error')] || 'اتصال اینستاگرام ناموفق بود.');
+  }
+  if (params.has('ig_connected') || params.has('ig_error')){
+    window.history.replaceState({}, '', window.location.pathname);
   }
 }
 
@@ -218,6 +434,11 @@ document.getElementById('logoutBtn').addEventListener('click', async () => {
   window.location.href = '/login.html';
 });
 
+document.getElementById('upgradeBtn').addEventListener('click', () => {
+  window.open('/pricing.html', '_blank');
+});
+
+/* ---------- Custom request (secondary path) ---------- */
 document.getElementById('reqForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('reqSubmit');
@@ -243,7 +464,6 @@ document.getElementById('reqForm').addEventListener('submit', async (e) => {
     msg.textContent = 'درخواست شما ثبت شد.';
     msg.className = 'form-msg success';
     document.getElementById('reqForm').reset();
-    loadRequests();
   } catch (err) {
     msg.textContent = err.message;
     msg.className = 'form-msg error';
@@ -252,45 +472,557 @@ document.getElementById('reqForm').addEventListener('submit', async (e) => {
   }
 });
 
-async function loadRequests(){
-  const container = document.getElementById('reqList');
+/* ---------- Automation engine ---------- */
+async function loadAutomations(){
+  const container = document.getElementById('automationsContainer');
   try {
-    const res = await fetch('/api/dashboard/requests');
+    const res = await fetch('/api/automations');
     const data = await res.json();
     if (!res.ok || !data.ok) throw new Error();
-    renderRequests(data.requests || []);
+    userPlan = data.plan;
+    planLimits = data.limits;
+    renderPlanBanner(data.automations);
+    renderAutomations(data.automations);
   } catch (err) {
-    container.innerHTML = '<div class="empty">مشکلی در بارگذاری درخواست‌ها پیش آمد.</div>';
+    container.innerHTML = '<div class="empty">مشکلی در بارگذاری اتوماسیون‌ها پیش آمد.</div>';
   }
 }
 
-function renderRequests(items){
-  const container = document.getElementById('reqList');
-  if (!items.length){
-    container.innerHTML = '<div class="empty">هنوز درخواستی ثبت نکرده‌اید.</div>';
-    return;
-  }
-  container.innerHTML = '<div class="req-list">' + items.map(reqCard).join('') + '</div>';
-}
+function renderPlanBanner(automations){
+  document.getElementById('planBadge').textContent = userPlan === 'pro' ? 'پلن حرفه‌ای' : 'پلن رایگان';
+  document.getElementById('planBadge').className = 'plan-badge' + (userPlan === 'pro' ? ' pro' : '');
 
-function reqCard(r){
-  const isDone = r.status !== 'در انتظار بررسی';
-  const time = new Date(r.created_at).toLocaleDateString('fa-IR');
-  return `
-    <div class="req-card">
-      <div>
-        <h3>${escapeHtml(r.business)}${r.type ? ' · ' + escapeHtml(r.type) : ''}</h3>
-        <div class="meta">${time}</div>
-        <p>${escapeHtml(r.description)}</p>
-      </div>
-      <span class="status-badge ${isDone ? 'done' : 'pending'}">${escapeHtml(r.status)}</span>
+  const totalRules = automations.reduce((sum, a) => sum + a.rules.length, 0);
+  const maxRulesTotal = planLimits.maxRulesPerAutomation * Math.max(automations.length, 1);
+  const botPct = Math.min(100, (automations.length / planLimits.maxAutomations) * 100);
+
+  document.getElementById('usageBars').innerHTML = `
+    <div class="usage-item">
+      <span class="label">ربات‌ها: ${automations.length} از ${planLimits.maxAutomations}</span>
+      <div class="usage-track"><div class="usage-fill ${botPct >= 100 ? 'full' : ''}" style="width:${botPct}%"></div></div>
     </div>
   `;
+}
+
+let lastAutomations = [];
+
+function renderAutomations(automations){
+  lastAutomations = automations;
+  const container = document.getElementById('automationsContainer');
+
+  if (!automations.length){
+    container.innerHTML = connectCardHtml();
+    bindConnectForm();
+    return;
+  }
+
+  container.innerHTML = automations.map(automationCardHtml).join('');
+  automations.forEach(a => bindAutomationCard(a));
+
+  if (automations.length < planLimits.maxAutomations){
+    container.innerHTML += connectCardHtml(true);
+    bindConnectForm();
+  }
+}
+
+// فقط یک کارت رو دوباره رندر می‌کنه (مثلاً برای باز/بسته کردن فرم اتصال یک ارائه‌دهنده)، بدون درخواست به سرور
+function rerenderCard(automationId){
+  const automation = lastAutomations.find(a => a.id === automationId);
+  if (!automation) return;
+  const oldCard = document.querySelector(`.automation-card[data-automation-id="${cssEscape(automationId)}"]`);
+  if (!oldCard) return;
+  oldCard.outerHTML = automationCardHtml(automation);
+  bindAutomationCard(automation);
+}
+
+function connectCardHtml(compact){
+  return `
+    <div class="connect-card">
+      <h3>${compact ? 'اتصال کانال دیگر' : 'اولین کانال پاسخگوی خودکارت رو بساز'}</h3>
+      <p>یک کانال رو انتخاب کن و بذار Morfo Flow خودش جواب مشتری‌هات رو بده.</p>
+
+      <div class="channel-tabs">
+        <button type="button" class="channel-tab active" data-channel="telegram">تلگرام</button>
+        <button type="button" class="channel-tab" data-channel="bale">بله</button>
+        <button type="button" class="channel-tab" data-channel="website">ویجت وب‌سایت</button>
+        <button type="button" class="channel-tab" data-channel="instagram">اینستاگرام</button>
+        <button type="button" class="channel-tab disabled" disabled title="در دست بررسی — به محض آماده شدن اضافه می‌شه">واتساپ (به‌زودی)</button>
+      </div>
+
+      <div class="channel-panel" data-panel="telegram">
+        <ol class="connect-steps">
+          <li>۱. به <a href="https://t.me/BotFather" target="_blank" rel="noopener" style="color:var(--accent);">@BotFather</a> پیام بده و با دستور <code>/newbot</code> یه ربات بساز</li>
+          <li>۲. توکنی که بهت می‌ده رو کپی کن</li>
+          <li>۳. اسم کسب‌وکار و توکن رو پایین بذار و وصل کن</li>
+        </ol>
+        <div class="field">
+          <label>نام کسب‌وکار</label>
+          <input class="field-name" placeholder="مثلاً فروشگاه کفش رضا">
+        </div>
+        <div class="field">
+          <label>توکن ربات (از BotFather)</label>
+          <input class="field-token" placeholder="123456789:ABCdefGhIJKlmNoPQRstuVwxYZ" style="direction:ltr; text-align:left;">
+        </div>
+      </div>
+
+      <div class="channel-panel" data-panel="bale" style="display:none;">
+        <ol class="connect-steps">
+          <li>۱. توی اپ بله، بخش «ربات‌ساز» رو باز کن و یه ربات جدید بساز (دقیقاً مثل تلگرام)</li>
+          <li>۲. توکنی که بهت می‌ده رو کپی کن</li>
+          <li>۳. اسم کسب‌وکار و توکن رو پایین بذار و وصل کن</li>
+        </ol>
+        <div class="field">
+          <label>نام کسب‌وکار</label>
+          <input class="field-name" placeholder="مثلاً فروشگاه کفش رضا">
+        </div>
+        <div class="field">
+          <label>توکن ربات بله</label>
+          <input class="field-token" placeholder="توکن ربات بله" style="direction:ltr; text-align:left;">
+        </div>
+      </div>
+
+      <div class="channel-panel" data-panel="website" style="display:none;">
+        <ol class="connect-steps">
+          <li>۱. اسم کسب‌وکارت رو بنویس و وصل کن</li>
+          <li>۲. یک کد کوتاه بهت می‌دیم</li>
+          <li>۳. همون کد رو قبل از <code>&lt;/body&gt;</code> سایتت بچسبون؛ همین!</li>
+        </ol>
+        <div class="field">
+          <label>نام کسب‌وکار</label>
+          <input class="field-name" placeholder="مثلاً بوتیک آنلاین سارا">
+        </div>
+      </div>
+
+      <div class="channel-panel" data-panel="instagram" style="display:none;">
+        <p style="color:var(--muted); font-size:13.5px; margin-bottom:18px;">
+          فقط حساب‌های اینستاگرام <b>Business/Creator</b> قابل اتصالن که به یک پیج فیسبوک وصل باشن. با یک کلیک، متا ازت اجازه می‌گیره.
+        </p>
+        <a href="/api/instagram/oauth-start" class="btn-primary" style="display:block; text-align:center; width:100%;">اتصال با اینستاگرام</a>
+      </div>
+
+      <button type="button" class="btn-primary connect-submit" style="width:100%;">اتصال</button>
+      <p class="form-msg connect-msg" role="status" aria-live="polite"></p>
+    </div>
+  `;
+}
+
+const TOKEN_BASED_CHANNELS = ['telegram', 'bale'];
+
+function bindConnectForm(){
+  document.querySelectorAll('.connect-card').forEach(card => {
+    let activeChannel = 'telegram';
+    const submitBtn = card.querySelector('.connect-submit');
+
+    function syncPanels(){
+      card.querySelectorAll('.channel-panel').forEach(p => {
+        p.style.display = p.dataset.panel === activeChannel ? 'block' : 'none';
+      });
+      // اینستاگرام با OAuth کار می‌کنه (یه لینک مستقیمه)، نه فرم — دکمه ارسال رو براش نشون نده
+      submitBtn.style.display = activeChannel === 'instagram' ? 'none' : 'block';
+    }
+
+    card.querySelectorAll('.channel-tab:not(.disabled)').forEach(tab => {
+      tab.addEventListener('click', () => {
+        activeChannel = tab.dataset.channel;
+        card.querySelectorAll('.channel-tab').forEach(t => t.classList.toggle('active', t === tab));
+        syncPanels();
+      });
+    });
+    syncPanels();
+
+    submitBtn.addEventListener('click', async () => {
+      const msg = card.querySelector('.connect-msg');
+      msg.className = 'form-msg connect-msg';
+      msg.textContent = '';
+
+      const activePanel = card.querySelector(`.channel-panel[data-panel="${activeChannel}"]`);
+      const name = activePanel.querySelector('.field-name')?.value.trim() || '';
+      const isTokenBased = TOKEN_BASED_CHANNELS.includes(activeChannel);
+      const botToken = isTokenBased ? (activePanel.querySelector('.field-token')?.value.trim() || '') : '';
+
+      if (!name || (isTokenBased && !botToken)){
+        msg.textContent = isTokenBased ? 'نام کسب‌وکار و توکن ربات رو وارد کن.' : 'نام کسب‌وکار رو وارد کن.';
+        msg.className = 'form-msg connect-msg error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'در حال اتصال...';
+      try {
+        const res = await fetch('/api/automations', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, channelType: activeChannel, botToken }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok){
+          msg.textContent = data.upgradeRequired ? (data.error + ' — برای ارتقا با پشتیبانی در تماس باش.') : (data.error || 'اتصال ناموفق بود.');
+          msg.className = 'form-msg connect-msg error';
+          return;
+        }
+        loadAutomations();
+      } catch (err) {
+        msg.textContent = 'مشکلی پیش اومد. دوباره تلاش کن.';
+        msg.className = 'form-msg connect-msg error';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'اتصال';
+      }
+    });
+  });
+}
+
+function providerLabel(id){
+  const p = PROVIDERS.find(x => x.id === id);
+  return p ? p.label : id;
+}
+
+function providerChipHtml(automation, provider, cred){
+  const connected = !!cred;
+  const active = connected && cred.is_active;
+  return `
+    <button type="button" class="provider-chip ${active ? 'active' : ''} ${connected ? 'connected' : ''}" data-provider="${provider.id}" data-automation-id="${escapeAttr(automation.id)}">
+      <span class="chip-dot"></span>
+      <span>${escapeHtml(provider.label)}</span>
+      ${connected ? `<span class="chip-remove" data-provider="${provider.id}" title="حذف این ارائه‌دهنده">×</span>` : ''}
+    </button>
+  `;
+}
+
+function connectFormInnerHtml(providerId){
+  const p = PROVIDERS.find(x => x.id === providerId);
+  return `
+    <input type="password" class="provider-key-input" placeholder="کلید API ${escapeHtml(p.label)}">
+    <small>کلید رایگان/شخصی رو از <a href="${p.keyUrl}" target="_blank" rel="noopener">همینجا</a> بگیر.</small>
+    <button class="btn-small provider-key-save" style="width:100%;">وصل کردن ${escapeHtml(p.label)}</button>
+  `;
+}
+
+function automationCardHtml(a){
+  const stats = a.stats || { total: 0, rule: 0, ai: 0, none: 0, ai_error: 0 };
+  const credentials = a.aiCredentials || [];
+  const credentialMap = {};
+  credentials.forEach(c => { credentialMap[c.provider] = c; });
+  const activeCred = credentials.find(c => c.is_active);
+  const ruleLimitReached = a.rules.length >= planLimits.maxRulesPerAutomation;
+  const CHANNEL_NAMES = { website: 'ویجت وب‌سایت', instagram: 'اینستاگرام', bale: 'بله', telegram: 'تلگرام' };
+  const channelBadge = (a.channel_type === 'website' || a.channel_type === 'instagram')
+    ? `<span class="bot-handle">${CHANNEL_NAMES[a.channel_type]}</span>`
+    : (a.bot_username ? `<span class="bot-handle">${CHANNEL_NAMES[a.channel_type] || ''} · @${escapeHtml(a.bot_username)}</span>` : '');
+  const embedBlock = a.channel_type === 'website' ? `
+      <div class="embed-box">
+        <p style="color:var(--muted); font-size:12.5px; margin-bottom:8px;">این کد رو قبل از &lt;/body&gt; سایتت بذار:</p>
+        <code class="embed-code">&lt;script src="${location.origin}/widget.js" data-automation="${escapeAttr(a.id)}"&gt;&lt;/script&gt;</code>
+        <button class="btn-small copy-embed" style="margin-top:10px;">کپی کد</button>
+      </div>
+  ` : '';
+
+  const isOpen = openAdvIds.has(a.id);
+
+  return `
+    <div class="automation-card" data-automation-id="${escapeAttr(a.id)}">
+      <div class="automation-head">
+        <div class="automation-title">
+          <span class="status-dot"></span>
+          <h3>${escapeHtml(a.name)}</h3>
+          ${channelBadge}
+        </div>
+        <button class="btn-danger-ghost delete-automation">حذف</button>
+      </div>
+
+      ${embedBlock}
+
+      <div class="rules-list">
+        ${a.rules.length ? a.rules.map(ruleRowHtml).join('') : '<p style="color:var(--muted-dim); font-size:13px;">هنوز قانونی اضافه نکردی.</p>'}
+      </div>
+
+      <div class="add-rule-row">
+        <input class="kw new-kw" placeholder="کلیدواژه (مثلاً قیمت)">
+        <input class="reply new-reply" placeholder="پاسخ خودکار">
+        <button class="btn-small add-rule-btn" ${ruleLimitReached ? 'disabled' : ''}>افزودن قانون</button>
+      </div>
+      ${ruleLimitReached ? `<p class="limit-note">به سقف ${planLimits.maxRulesPerAutomation} قانون پلن رایگان رسیدی. برای قانون نامحدود ارتقا بده.</p>` : ''}
+
+      <button class="adv-toggle ${isOpen ? 'open' : ''}" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        تنظیمات پیشرفته و تست
+      </button>
+
+      <div class="adv-section ${isOpen ? 'open' : ''}">        <div class="stats-line">
+          <span>مجموع پیام‌های جواب‌داده‌شده: <b>${stats.total}</b></span>
+          <span>با قانون: <b>${stats.rule}</b></span>
+          <span>با AI: <b>${stats.ai}</b></span>
+          <span>بی‌پاسخ: <b>${stats.none + stats.ai_error}</b></span>
+        </div>
+
+        <div class="ai-box">
+          <div class="ai-status-row">
+            <span class="label">پاسخ هوشمند با AI</span>
+            <span class="ai-pill ${activeCred ? 'on' : 'off'}">${activeCred ? 'فعال (' + providerLabel(activeCred.provider) + ')' : 'غیرفعال'}</span>
+          </div>
+          <p class="ai-desc">وقتی هیچ قانونی مچ نشد، به‌جای سکوت، از کلید AI خودت جواب می‌سازیم. هزینه هر پیام مستقیم با حساب خودته، ما فقط واسطه‌ایم. روی هرکدوم بزن تا وصلش کنی؛ روی یکی که قبلاً وصل کردی بزن تا بهش سوییچ کنی.</p>
+
+          <div class="provider-grid">
+            ${PROVIDERS.map(p => providerChipHtml(a, p, credentialMap[p.id])).join('')}
+          </div>
+
+          <div class="ai-connect-form ${openProviderForm[a.id] ? 'open' : ''}" data-open-provider="${escapeAttr(openProviderForm[a.id] || '')}">
+            ${openProviderForm[a.id] ? connectFormInnerHtml(openProviderForm[a.id]) : ''}
+          </div>
+
+          ${credentials.length >= 2 ? `
+          <div class="fallback-row">
+            <div class="fb-text"><b>حالت هوشمند (Fallback خودکار)</b>اگه ارائه‌دهنده فعال جواب نداد (قطعی، اتمام اعتبار)، خودکار سراغ بعدی می‌ریم.</div>
+            <label class="switch">
+              <input type="checkbox" class="fallback-toggle" ${a.ai_fallback_enabled ? 'checked' : ''}>
+              <span class="slider"></span>
+            </label>
+          </div>` : ''}
+
+          <div class="ai-instructions-row">
+            <label>دستورالعمل لحن پاسخ (مشترک بین همه ارائه‌دهنده‌ها)</label>
+            <textarea class="ai-instructions-input" rows="2" placeholder="مثلاً: رسمی و مودب جواب بده">${escapeHtml(a.ai_instructions || '')}</textarea>
+            <button class="btn-small ai-instructions-save">ذخیره دستورالعمل</button>
+          </div>
+
+          <p class="ai-msg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="test-box">
+          <p style="font-size:12.5px; font-weight:700; margin-bottom:10px;">تست زنده (بدون نیاز به تلگرام یا سایت واقعی)</p>
+          <div class="test-msgs"></div>
+          <div class="test-input-row">
+            <input type="text" class="test-input" placeholder="یه پیام امتحانی بنویس...">
+            <button class="btn-small test-send-btn">ارسال</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function ruleRowHtml(r){
+  return `
+    <div class="rule-row" data-rule-id="${escapeAttr(r.id)}">
+      <span class="rule-kw">${escapeHtml(r.keyword)}</span>
+      <span class="rule-arrow">←</span>
+      <span class="rule-reply">${escapeHtml(r.reply)}</span>
+      <button class="rule-del" aria-label="حذف قانون" title="حذف قانون">✕</button>
+    </div>
+  `;
+}
+
+function bindAutomationCard(automation){
+  const card = document.querySelector(`.automation-card[data-automation-id="${cssEscape(automation.id)}"]`);
+  if (!card) return;
+
+  card.querySelector('.delete-automation').addEventListener('click', async () => {
+    if (!confirm(`«${automation.name}» حذف بشه؟ دیگه پاسخ خودکار نمی‌ده.`)) return;
+    await fetch('/api/automations/' + encodeURIComponent(automation.id), { method: 'DELETE' });
+    loadAutomations();
+  });
+
+  const copyBtn = card.querySelector('.copy-embed');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const code = card.querySelector('.embed-code').textContent;
+      navigator.clipboard.writeText(code);
+      copyBtn.textContent = 'کپی شد ✓';
+      setTimeout(() => { copyBtn.textContent = 'کپی کد'; }, 1500);
+    });
+  }
+
+  // advanced section toggle
+  const advToggle = card.querySelector('.adv-toggle');
+  const advSection = card.querySelector('.adv-section');
+  advToggle.addEventListener('click', () => {
+    const nowOpen = advToggle.classList.toggle('open');
+    advSection.classList.toggle('open', nowOpen);
+    if (nowOpen) openAdvIds.add(automation.id);
+    else openAdvIds.delete(automation.id);
+  });
+
+  const aiMsg = card.querySelector('.ai-msg');
+
+  // provider chips: click = connect (if new) or switch (if already connected)
+  card.querySelectorAll('.provider-chip').forEach(chip => {
+    chip.addEventListener('click', async (e) => {
+      if (e.target.closest('.chip-remove')) return; // handled separately below
+      const providerId = chip.dataset.provider;
+      const isConnected = chip.classList.contains('connected');
+      const isActive = chip.classList.contains('active');
+
+      if (isConnected && !isActive) {
+        // SWITCH: یک کلیک برای فعال کردن ارائه‌دهنده‌ای که قبلاً وصل شده
+        aiMsg.textContent = '';
+        aiMsg.className = 'ai-msg';
+        try {
+          const res = await fetch(`/api/automations/${encodeURIComponent(automation.id)}/ai/active`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ provider: providerId }),
+          });
+          const data = await res.json();
+          if (!res.ok || !data.ok) { aiMsg.textContent = data.error || 'سوییچ ناموفق بود.'; aiMsg.className = 'ai-msg error'; return; }
+          loadAutomations();
+        } catch (err) {
+          aiMsg.textContent = 'مشکلی پیش اومد.'; aiMsg.className = 'ai-msg error';
+        }
+        return;
+      }
+
+      if (!isConnected) {
+        // باز کردن فرم اتصال برای این ارائه‌دهنده (بقیه فرم‌ها بسته می‌شن)
+        openProviderForm[automation.id] = openProviderForm[automation.id] === providerId ? null : providerId;
+        rerenderCard(automation.id);
+      }
+      // اگه روی همون ارائه‌دهنده فعال کلیک شد، کاری لازم نیست
+    });
+  });
+
+  // × روی هر چیپ وصل‌شده = حذف اون اعتبارنامه
+  card.querySelectorAll('.chip-remove').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const providerId = btn.dataset.provider;
+      if (!confirm(`اتصال ${providerId} حذف بشه؟`)) return;
+      await fetch(`/api/automations/${encodeURIComponent(automation.id)}/ai/credentials`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ provider: providerId }),
+      });
+      loadAutomations();
+    });
+  });
+
+  // ذخیره کلید در فرم اتصال باز
+  const keySaveBtn = card.querySelector('.provider-key-save');
+  if (keySaveBtn) {
+    keySaveBtn.addEventListener('click', async () => {
+      const providerId = openProviderForm[automation.id];
+      const apiKey = card.querySelector('.provider-key-input').value.trim();
+      if (!apiKey) { aiMsg.textContent = 'کلید API رو وارد کن.'; aiMsg.className = 'ai-msg error'; return; }
+      keySaveBtn.disabled = true;
+      keySaveBtn.textContent = 'در حال بررسی کلید...';
+      aiMsg.textContent = ''; aiMsg.className = 'ai-msg';
+      try {
+        const res = await fetch(`/api/automations/${encodeURIComponent(automation.id)}/ai/credentials`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ provider: providerId, apiKey }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) { aiMsg.textContent = data.error || 'اتصال ناموفق بود.'; aiMsg.className = 'ai-msg error'; return; }
+        openProviderForm[automation.id] = null;
+        loadAutomations();
+      } catch (err) {
+        aiMsg.textContent = 'مشکلی پیش اومد.'; aiMsg.className = 'ai-msg error';
+      } finally {
+        keySaveBtn.disabled = false;
+        keySaveBtn.textContent = 'وصل کردن';
+      }
+    });
+  }
+
+  // سوییچ حالت هوشمند (fallback خودکار)
+  const fallbackToggle = card.querySelector('.fallback-toggle');
+  if (fallbackToggle) {
+    fallbackToggle.addEventListener('change', async () => {
+      await fetch(`/api/automations/${encodeURIComponent(automation.id)}/ai/fallback`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ enabled: fallbackToggle.checked }),
+      });
+    });
+  }
+
+  // ذخیره دستورالعمل (مستقل از کلیدها)
+  const instrSaveBtn = card.querySelector('.ai-instructions-save');
+  if (instrSaveBtn) {
+    instrSaveBtn.addEventListener('click', async () => {
+      const instructions = card.querySelector('.ai-instructions-input').value.trim();
+      instrSaveBtn.disabled = true;
+      try {
+        const res = await fetch(`/api/automations/${encodeURIComponent(automation.id)}/ai/instructions`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ instructions }),
+        });
+        const data = await res.json();
+        aiMsg.textContent = data.ok ? 'دستورالعمل ذخیره شد.' : (data.error || 'ذخیره ناموفق بود.');
+        aiMsg.className = data.ok ? 'ai-msg success' : 'ai-msg error';
+      } finally {
+        instrSaveBtn.disabled = false;
+      }
+    });
+  }
+
+  // live test box
+  const testMsgs = card.querySelector('.test-msgs');
+  const testInput = card.querySelector('.test-input');
+  const testSendBtn = card.querySelector('.test-send-btn');
+  async function sendTestMessage(){
+    const text = testInput.value.trim();
+    if (!text) return;
+    testMsgs.insertAdjacentHTML('beforeend', `<div class="test-msg user">${escapeHtml(text)}</div>`);
+    testInput.value = '';
+    testMsgs.scrollTop = testMsgs.scrollHeight;
+    try {
+      const res = await fetch(`/api/automations/${encodeURIComponent(automation.id)}/test`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text }),
+      });
+      const data = await res.json();
+      const isEmpty = data.ok && data.source === 'none';
+      testMsgs.insertAdjacentHTML('beforeend', `<div class="test-msg bot${isEmpty ? ' empty-note' : ''}">${escapeHtml(data.reply || data.error || 'خطا')}</div>`);
+    } catch (err) {
+      testMsgs.insertAdjacentHTML('beforeend', `<div class="test-msg bot">اتصال برقرار نشد.</div>`);
+    }
+    testMsgs.scrollTop = testMsgs.scrollHeight;
+  }
+  if (testSendBtn) {
+    testSendBtn.addEventListener('click', sendTestMessage);
+    testInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendTestMessage(); });
+  }
+
+  card.querySelectorAll('.rule-del').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const ruleId = btn.closest('.rule-row').dataset.ruleId;
+      await fetch(`/api/automations/${encodeURIComponent(automation.id)}/rules/${encodeURIComponent(ruleId)}`, { method: 'DELETE' });
+      loadAutomations();
+    });
+  });
+
+  const addBtn = card.querySelector('.add-rule-btn');
+  addBtn.addEventListener('click', async () => {
+    const keyword = card.querySelector('.new-kw').value.trim();
+    const reply = card.querySelector('.new-reply').value.trim();
+    if (!keyword || !reply) return;
+    addBtn.disabled = true;
+    try {
+      const res = await fetch(`/api/automations/${encodeURIComponent(automation.id)}/rules`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ keyword, reply }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok){
+        alert(data.error || 'افزودن قانون ناموفق بود.');
+        return;
+      }
+      loadAutomations();
+    } finally {
+      addBtn.disabled = false;
+    }
+  });
 }
 
 function escapeHtml(s){
   return String(s || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
+function escapeAttr(s){ return String(s || '').replace(/"/g, '&quot;'); }
+function cssEscape(s){ return String(s).replace(/(["\\])/g, '\\$1'); }
 
 boot();
 </script>
